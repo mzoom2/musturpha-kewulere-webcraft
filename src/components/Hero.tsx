@@ -4,6 +4,9 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  // Use a path that will work in both development and production
+  const imagePath = "./upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png";
+  
   return (
     <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -67,9 +70,14 @@ const Hero = () => {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500/50">
               <img 
-                src="/upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
+                src={imagePath} 
                 alt="Adebayo Musturpha Kewulere" 
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error("Image failed to load:", e);
+                  // Fallback to an alternative path if the first one fails
+                  e.currentTarget.src = "/a96231c9-263a-44b7-98bf-2509bdccdd67.png";
+                }}
               />
             </div>
           </motion.div>
