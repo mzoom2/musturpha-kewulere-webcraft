@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
 
-## Project info
+# Adebayo Musturpha Kewulere Portfolio
 
-**URL**: https://lovable.dev/projects/2287eb7e-8064-4cdf-8cbb-f05bc3685c5a
+A professional portfolio website for Adebayo Musturpha Kewulere, showcasing skills, services, and projects.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Responsive design optimized for all devices
+- Interactive UI with smooth scrolling and animations
+- Mobile-friendly navigation
+- Contact form with validation
+- Skills visualization
+- Project showcase
 
-**Use Lovable**
+## Setup Instructions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2287eb7e-8064-4cdf-8cbb-f05bc3685c5a) and start prompting.
+1. Download all files and maintain the folder structure
+2. Make sure the "uploads" folder contains the required images
+3. Open index.html in a web browser to view the site
 
-Changes made via Lovable will be committed automatically to this repo.
+## File Structure
 
-**Use your preferred IDE**
+- `index.html` - Main HTML document
+- `styles.css` - All styling information
+- `main.js` - JavaScript functionality
+- `uploads/` - Directory containing images
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Customization
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+You can easily customize the portfolio by:
 
-Follow these steps:
+1. Updating the personal information in index.html
+2. Adding new projects to the projects section
+3. Adjusting skills and services as needed
+4. Changing colors in the styles.css file
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Technology
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+This portfolio uses HTML5, CSS3 and vanilla JavaScript without any additional frameworks.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Contact
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+For any questions or issues, please reach out to:
+- Email: contact@adebayomusturpha.com
+- WhatsApp: +234 904 712 4674
 
-**Edit a file directly in GitHub**
+## License
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2287eb7e-8064-4cdf-8cbb-f05bc3685c5a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+All rights reserved © Adebayo Musturpha Kewulere

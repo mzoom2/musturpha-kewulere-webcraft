@@ -18,16 +18,713 @@
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     
     <!-- Favicon -->
-    <link rel="icon" href="/uploads/791f0c56-003c-4e07-8d84-648bb0ebe3c9.png" type="image/png">
+    <link rel="icon" href="uploads/791f0c56-003c-4e07-8d84-648bb0ebe3c9.png" type="image/png">
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
+
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="flex justify-between items-center">
+          <a href="#home" class="text-2xl md:text-3xl font-bold">
+            <span class="text-amber-400">Adebayo</span><span class="text-white">.dev</span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+              <li><a href="#home" class="nav-link active">Home</a></li>
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#services" class="nav-link">Services</a></li>
+              <li><a href="#skills" class="nav-link">Skills</a></li>
+              <li><a href="#projects" class="nav-link">Projects</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+
+          <!-- Mobile Navigation Trigger -->
+          <button 
+            id="menu-trigger"
+            class="md:hidden text-white hover:text-amber-400 hover:bg-transparent"
+          >
+            <i class="fas fa-bars h-6 w-6"></i>
+            <span class="sr-only">Open Menu</span>
+          </button>
+
+          <!-- Mobile Navigation Menu -->
+          <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 flex-col md:hidden hidden">
+            <div class="flex justify-end p-6">
+              <button 
+                id="menu-close"
+                class="text-white hover:text-amber-400 hover:bg-transparent"
+              >
+                <i class="fas fa-times h-6 w-6"></i>
+                <span class="sr-only">Close Menu</span>
+              </button>
+            </div>
+            <nav class="flex flex-col items-center justify-center flex-1">
+              <ul class="space-y-6 text-center">
+                <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full">
+      <!-- Hero Section -->
+      <section id="home" class="min-h-screen pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <div class="absolute top-20 right-0 w-72 h-72 bg-amber-500/20 rounded-full filter blur-3xl"></div>
+          <div class="absolute bottom-10 left-10 w-72 h-72 bg-amber-600/10 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+          <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="md:w-1/2 space-y-6 text-center md:text-left">
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in">
+                Hi, I'm <span class="text-amber-400">Adebayo Musturpha</span>
+              </h1>
+              
+              <p class="text-xl md:text-2xl text-gray-300 animate-fade-in delay-200">
+                Full-stack Developer & Tech Innovator
+              </p>
+              
+              <p class="text-gray-400 max-w-lg mx-auto md:mx-0 animate-fade-in delay-400">
+                Creating intelligent solutions to real-world problems through web applications, AI agents, and electronic systems.
+              </p>
+              
+              <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in delay-600">
+                <a href="#contact" class="btn btn-primary flex items-center gap-2">
+                  Contact Me <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <a href="#projects" class="btn btn-outline">
+                  View My Work
+                </a>
+              </div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center md:justify-end animate-scale-in delay-200">
+              <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500/50">
+                <img 
+                  src="uploads/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
+                  alt="Adebayo Musturpha Kewulere" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-16 md:py-24 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] relative">
+        <div class="absolute inset-0 z-0">
+          <div class="absolute top-20 left-20 w-72 h-72 bg-amber-500/10 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+          <div class="max-w-3xl mx-auto text-center space-y-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 animate-on-scroll">
+              About <span class="text-amber-400">Me</span>
+            </h2>
+            
+            <p class="text-lg text-gray-300 mb-6 animate-on-scroll">
+              I am Adebayo Musturpha Kewulere, a versatile developer and innovator passionate about creating technological solutions that solve real-world problems. With expertise in web development, AI systems, and electronics, I bring a unique blend of skills to every project.
+            </p>
+            
+            <p class="text-gray-400 animate-on-scroll">
+              My journey in technology began with a fascination for how digital systems can transform lives. Today, I focus on developing applications that are not only functional but also intuitive and accessible. Whether it's crafting responsive websites, building powerful APIs, or creating intelligent AI agents, I'm committed to excellence and continuous learning.
+            </p>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll">
+              <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                <h3 class="text-xl font-semibold mb-2">Vision</h3>
+                <p class="text-gray-400">Creating technology that empowers individuals and communities to overcome challenges and realize their potential.</p>
+              </div>
+              
+              <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                <h3 class="text-xl font-semibold mb-2">Mission</h3>
+                <p class="text-gray-400">To develop innovative, accessible solutions that address real needs while pushing the boundaries of what's possible.</p>
+              </div>
+              
+              <div class="bg-gray-800/50 p-6 rounded-lg border border-gray-700">
+                <h3 class="text-xl font-semibold mb-2">Values</h3>
+                <p class="text-gray-400">Quality, innovation, inclusivity, and continuous growth drive everything I create and every collaboration I engage in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-16 md:py-24 bg-[#0f0f0f]">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold">My <span class="text-amber-400">Services</span></h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+              Comprehensive technical solutions designed to solve real-world problems and drive innovation.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+              <p class="text-gray-400">Creating responsive, modern websites and web applications optimized for performance and user experience.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-server"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">REST APIs</h3>
+              <p class="text-gray-400">Building robust and scalable API solutions that connect your applications and services seamlessly.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">AI Modules & Agents</h3>
+              <p class="text-gray-400">Developing intelligent systems and AI solutions tailored to automate tasks and enhance decision-making.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Microcontrollers & Electronics</h3>
+              <p class="text-gray-400">Designing and implementing electronic systems using microcontrollers for IoT and automation projects.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Telegram Bots</h3>
+              <p class="text-gray-400">Creating custom Telegram bots that automate communications and provide valuable services to users.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll">
+              <div class="mb-4 text-amber-400 bg-amber-400/10 p-3 inline-block rounded-lg">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-3">Technical Consultation</h3>
+              <p class="text-gray-400">Providing expert advice and strategies for implementing technical solutions to complex problems.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-16 md:py-24 bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a]">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold">Technical <span class="text-amber-400">Skills</span></h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+              My expertise spans across various technologies and domains, allowing me to build comprehensive solutions.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 animate-on-scroll">
+              <h3 class="text-xl font-semibold mb-6 text-amber-400">Frontend</h3>
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">HTML</span>
+                    <span class="text-gray-400">90%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">CSS</span>
+                    <span class="text-gray-400">85%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">JavaScript</span>
+                    <span class="text-gray-400">85%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">Responsive Design</span>
+                    <span class="text-gray-400">90%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 animate-on-scroll">
+              <h3 class="text-xl font-semibold mb-6 text-amber-400">Backend</h3>
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">Python</span>
+                    <span class="text-gray-400">80%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">RESTful APIs</span>
+                    <span class="text-gray-400">85%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">Database Design</span>
+                    <span class="text-gray-400">75%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 animate-on-scroll">
+              <h3 class="text-xl font-semibold mb-6 text-amber-400">Other</h3>
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">AI Development</span>
+                    <span class="text-gray-400">70%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">Electronics</span>
+                    <span class="text-gray-400">75%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 75%"></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="font-medium">Problem Solving</span>
+                    <span class="text-gray-400">90%</span>
+                  </div>
+                  <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-amber-500 h-2 rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-16 text-center animate-on-scroll">
+            <h3 class="text-2xl font-semibold mb-6">Technology Stack</h3>
+            <div class="flex flex-wrap justify-center gap-6">
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">HTML</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">CSS</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">JavaScript</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">Python</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">SQL</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">Git</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">AI/ML</div>
+              <div class="px-4 py-2 bg-gray-800 rounded-full text-gray-300 border border-gray-700">IoT</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-16 md:py-24 bg-[#1a1a1a]">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold">Featured <span class="text-amber-400">Projects</span></h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+              A selection of my recent work showcasing the range of solutions I've developed.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="project-card animate-on-scroll">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1721322800607-8c38375eef04" 
+                  alt="E-Commerce Platform" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3">E-Commerce Platform</h3>
+                <p class="text-gray-400 mb-4">A full-featured online shopping platform with secure payment integration, inventory management, and responsive design.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">HTML</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">CSS</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">JavaScript</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Python</span>
+                </div>
+                <a href="#" class="btn btn-outline-amber">
+                  <span class="flex items-center gap-2">
+                    View Details <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+                  alt="AI Customer Service Bot" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3">AI Customer Service Bot</h3>
+                <p class="text-gray-400 mb-4">An intelligent chatbot that handles customer inquiries, provides product information, and routes complex issues to human support.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Python</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">NLP</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">API Integration</span>
+                </div>
+                <a href="#" class="btn btn-outline-amber">
+                  <span class="flex items-center gap-2">
+                    View Details <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b" 
+                  alt="Smart Home Automation System" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3">Smart Home Automation System</h3>
+                <p class="text-gray-400 mb-4">IoT-based home automation solution allowing users to control lighting, security, and appliances via mobile app or voice commands.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Microcontrollers</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Python</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Mobile App</span>
+                </div>
+                <a href="#" class="btn btn-outline-amber">
+                  <span class="flex items-center gap-2">
+                    View Details <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
+                  alt="Medical Appointment System" 
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3">Medical Appointment System</h3>
+                <p class="text-gray-400 mb-4">Web application for scheduling medical appointments, tracking patient history, and managing clinic resources efficiently.</p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">JavaScript</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">RESTful API</span>
+                  <span class="px-2 py-1 bg-gray-700/50 text-gray-300 text-xs rounded">Database</span>
+                </div>
+                <a href="#" class="btn btn-outline-amber">
+                  <span class="flex items-center gap-2">
+                    View Details <i class="fas fa-external-link-alt"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-12 animate-on-scroll">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+              <a href="https://github.com/m-zoom" target="_blank" rel="noopener noreferrer" class="btn btn-primary flex items-center gap-2">
+                View All Projects <i class="fas fa-external-link-alt"></i>
+              </a>
+              <a href="mailto:adebayomusturpha001@gmail.com" class="text-amber-400 hover:text-amber-300 transition-colors">
+                adebayomusturpha001@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-16 md:py-24 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
+        <div class="container mx-auto px-4 md:px-6">
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold">Get In <span class="text-amber-400">Touch</span></h2>
+            <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+              Have a project in mind? Let's discuss how I can help bring your ideas to life.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="space-y-8 animate-on-scroll">
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center gap-4">
+                    <div class="bg-amber-500/20 p-3 rounded-full">
+                      <i class="fas fa-phone text-amber-400"></i>
+                    </div>
+                    <a 
+                      href="https://wa.me/2349047124674" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-gray-300 hover:text-amber-400 transition-colors"
+                    >
+                      +234 904 712 4674
+                    </a>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="bg-amber-500/20 p-3 rounded-full">
+                      <i class="fas fa-envelope text-amber-400"></i>
+                    </div>
+                    <a 
+                      href="mailto:contact@adebayomusturpha.com" 
+                      class="text-gray-300 hover:text-amber-400 transition-colors"
+                    >
+                      contact@adebayomusturpha.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Follow Me</h3>
+                <div class="flex gap-4">
+                  <a 
+                    href="https://github.com/m-zoom"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-white transition-colors"
+                  >
+                    <i class="fab fa-github"></i>
+                    <span class="sr-only">GitHub</span>
+                  </a>
+                  <a 
+                    href="https://facebook.com/Musturpha Adebayo"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-blue-500 transition-colors"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="sr-only">Facebook</span>
+                  </a>
+                  <a 
+                    href="https://instagram.com/Musturpha Adebayo"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-pink-500 transition-colors"
+                  >
+                    <i class="fab fa-instagram"></i>
+                    <span class="sr-only">Instagram</span>
+                  </a>
+                  <a 
+                    href="https://tiktok.com/@adebayo_musturpha"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-gray-800 p-3 rounded-full text-gray-300 hover:text-[#FF0050] transition-colors"
+                  >
+                    <span class="font-bold text-sm">TT</span>
+                    <span class="sr-only">TikTok</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-semibold mb-4">Let's Work Together</h3>
+                <p class="text-gray-400">
+                  I'm currently available for freelance work and interesting project opportunities. If you have a project that needs expertise in web development, AI, or electronics, let's discuss how we can collaborate.
+                </p>
+              </div>
+            </div>
+            
+            <div class="animate-on-scroll">
+              <form id="contact-form" class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6">
+                <div class="mb-4">
+                  <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                  />
+                </div>
+                
+                <div class="mb-4">
+                  <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                  />
+                </div>
+                
+                <div class="mb-6">
+                  <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    class="w-full bg-gray-700/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  class="btn btn-primary w-full"
+                  id="submit-btn"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] pt-12 pb-6">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Adebayo<span class="text-amber-400">.dev</span></h3>
+            <p class="text-gray-400">
+              Creating innovative technological solutions to real-world problems.
+            </p>
+          </div>
+          
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#home" class="text-gray-400 hover:text-amber-400 transition-colors">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">About</a>
+              </li>
+              <li>
+                <a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Services</a>
+              </li>
+              <li>
+                <a href="#projects" class="text-gray-400 hover:text-amber-400 transition-colors">Projects</a>
+              </li>
+              <li>
+                <a href="#contact" class="text-gray-400 hover:text-amber-400 transition-colors">Contact</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Connect</h4>
+            <div class="flex space-x-4">
+              <a 
+                href="https://github.com/m-zoom" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="fab fa-github"></i>
+                <span class="sr-only">GitHub</span>
+              </a>
+              
+              <a 
+                href="https://facebook.com/Musturpha Adebayo" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-gray-400 hover:text-blue-500 transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+                <span class="sr-only">Facebook</span>
+              </a>
+              
+              <a 
+                href="https://instagram.com/Musturpha Adebayo" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-gray-400 hover:text-pink-500 transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+                <span class="sr-only">Instagram</span>
+              </a>
+              
+              <a 
+                href="https://tiktok.com/@adebayo_musturpha" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-gray-400 hover:text-[#FF0050] transition-colors"
+              >
+                <span class="font-bold">TT</span>
+                <span class="sr-only">TikTok</span>
+              </a>
+            </div>
+            <p class="mt-4 text-gray-400">
+              WhatsApp: <a href="https://wa.me/2349047124674" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">+234 904 712 4674</a>
+            </p>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-6 text-center">
+          <p class="text-gray-500 text-sm">
+            &copy; <span id="current-year"></span> Adebayo Musturpha Kewulere. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
   </body>
 </html>
