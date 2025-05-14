@@ -67,7 +67,7 @@ const Hero = () => {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500/50">
               <img 
-                src="./upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
+                src="/upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
                 alt="Adebayo Musturpha Kewulere" 
                 className="w-full h-full object-cover"
               />
