@@ -51,7 +51,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800/30 border border-gray-700/50 rounded-lg overflow-hidden hover:border-amber-500/50 transition-all duration-300 flex flex-col h-full"
+              className="bg-gray-800/30 border border-gray-700/50 rounded-lg overflow-hidden hover:border-amber-500/50 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -64,7 +64,7 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-6">
                 <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -74,13 +74,11 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <div className="mt-auto">
-                  <Button variant="outline" className="text-amber-400 border-amber-500/50 hover:bg-amber-500/10">
-                    <span className="flex items-center gap-2">
-                      View Details <ExternalLink size={16} />
-                    </span>
-                  </Button>
-                </div>
+                <Button variant="outline" className="text-amber-400 border-amber-500/50 hover:bg-amber-500/10">
+                  <span className="flex items-center gap-2">
+                    View Details <ExternalLink size={16} />
+                  </span>
+                </Button>
               </div>
             </motion.div>
           ))}
