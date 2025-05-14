@@ -53,7 +53,7 @@ const Hero = () => {
                 </a>
               </Button>
               
-              <Button variant="outline" className="border-gray-600 text-white hover:bg-gray-800 rounded-full px-6">
+              <Button variant="outline" className="border-amber-400 text-amber-400 hover:bg-amber-500/10 hover:text-amber-300 shadow-lg shadow-amber-500/20 rounded-full px-6 transition-all duration-300 backdrop-blur-sm">
                 <a href="#projects">View My Work</a>
               </Button>
             </motion.div>
