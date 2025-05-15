@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Hero = () => {
+  const [imageError, setImageError] = useState(false);
+  
   return (
     <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -67,9 +70,14 @@ const Hero = () => {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500/50">
               <img 
-                src="/lovable-uploads/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
+                src={imageError ? "./lovable-uploads/791f0c56-003c-4e07-8d84-648bb0ebe3c9.png" : "./lovable-uploads/a96231c9-263a-44b7-98bf-2509bdccdd67.png"}
                 alt="Adebayo Musturpha Kewulere" 
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error("Image failed to load:", e);
+                  setImageError(true);
+                }}
+                onLoad={() => console.log("Image loaded successfully")}
               />
             </div>
           </motion.div>
