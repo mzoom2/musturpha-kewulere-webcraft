@@ -2,41 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 
 const Hero = () => {
-  // Try multiple possible paths for the image
-  const [imagePath, setImagePath] = useState("./upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png");
-  const [imageLoaded, setImageLoaded] = useState(false);
-  
-  // List of paths to try in order
-  const possiblePaths = [
-    "./upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png",
-    "/upload/a96231c9-263a-44b7-98bf-2509bdccdd67.png",
-    "a96231c9-263a-44b7-98bf-2509bdccdd67.png"
-  ];
-  
-  useEffect(() => {
-    console.log("Current image path being used:", imagePath);
-  }, [imagePath]);
-  
-  const handleImageError = () => {
-    console.error("Image failed to load with path:", imagePath);
-    
-    // Try the next path in our list
-    const currentIndex = possiblePaths.indexOf(imagePath);
-    if (currentIndex < possiblePaths.length - 1) {
-      const nextPath = possiblePaths[currentIndex + 1];
-      console.log("Trying next path:", nextPath);
-      setImagePath(nextPath);
-    }
-  };
-  
-  const handleImageLoad = () => {
-    console.log("Image loaded successfully with path:", imagePath);
-    setImageLoaded(true);
-  };
-  
   return (
     <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -99,17 +66,10 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-amber-500/50">
-              {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
-                  <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-amber-500"></div>
-                </div>
-              )}
               <img 
-                src={imagePath} 
+                src="/lovable-uploads/a96231c9-263a-44b7-98bf-2509bdccdd67.png" 
                 alt="Adebayo Musturpha Kewulere" 
-                className={`w-full h-full object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                onError={handleImageError}
-                onLoad={handleImageLoad}
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>

@@ -11,7 +11,6 @@ import Footer from "../components/Footer";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,14 +18,8 @@ const Index = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
-    // Mark component as loaded
-    setIsLoaded(true);
-    console.log("Index page component mounted");
-    
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      console.log("Index page component unmounted");
     };
   }, []);
 
@@ -34,16 +27,12 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] text-white overflow-x-hidden">
       <Header scrollY={scrollY} />
       <main className="w-full">
-        {isLoaded && (
-          <>
-            <Hero />
-            <About />
-            <Services />
-            <Skills />
-            <Projects />
-            <Contact />
-          </>
-        )}
+        <Hero />
+        <About />
+        <Services />
+        <Skills />
+        <Projects />
+        <Contact />
       </main>
       <Footer />
     </div>
